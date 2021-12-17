@@ -32,6 +32,6 @@ func main() {
 	TestUserCreate()
 	CreateTest()
 	TestFind()
-	//TestUpdate()
+	TestUpdate()
 	TestDel()
 }
