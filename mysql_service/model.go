@@ -1,8 +1,9 @@
 package main
 
 import (
-	"database/sql"
 	"time"
+
+	"gorm.io/gorm"
 )
 
 type Model struct {
@@ -10,13 +11,9 @@ type Model struct {
 	Time time.Time `gorm: "column: my_time"`
 }
 type TestUser struct {
-	Model        Model   `gorm:"embedded; embeddedPrefix: qq_"`
-	Name         string  `gorm:"default: qm"`
-	Email        *string `gorm:"not null"`
-	Age          uint8   `gorm:"comment: 年龄"`
-	Birthday     *time.Time
-	MemberNumber sql.NullString
-	ActivedAt    sql.NullTime
+	gorm.Model
+	Name string `gorm:"default: qm"`
+	Age  uint8  `gorm:"comment: 年龄"`
 }
 
 func TestUserCreate() {
